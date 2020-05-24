@@ -18,7 +18,12 @@ def predict():
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
-    output = prediction
+    if prediction==0:
+        output='No'
+    elif prediction==1:
+        output='Yes'
+        
+        
 
     return render_template('backorder.html', prediction_text='Company Can full fill Order $ {}'.format(output))
 
