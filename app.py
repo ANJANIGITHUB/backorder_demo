@@ -15,6 +15,16 @@ def predict():
     For rendering results on HTML GUI
     '''
     int_features = [x for x in request.form.values()]
+    num_data=[i for i in int_features[:11] ]
+    cat_data=[i for i in int_features[11:] ]
+
+    for i,j in enumerate(cat_data):
+        if j=='Yes':
+            cat_data[i]=1
+        else:
+            cat_data[i]=0
+        
+    int_features=num_data+cat_data
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
@@ -30,3 +40,4 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    
