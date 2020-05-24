@@ -25,7 +25,7 @@ def predict():
         
         
 
-    return render_template('backorder.html', prediction_text='Company Can full fill Order $ {}'.format(output))
+    return render_template('backorder.html', prediction_text='Product actually went on backorder -> {}'.format(output))
 
 
 if __name__ == "__main__":
