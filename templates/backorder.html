@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Back Order</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="national_inv" placeholder="national_inv" required="required" />
+        <input type="text" name="lead_time" placeholder="lead_time" required="required" />
+		<input type="text" name="in_transit_qty" placeholder="in_transit_qty" required="required" />
+		<input type="text" name="forecast_3_month" placeholder="forecast_3_month" required="required" />
+		<!-- <input type="text" name="forecast_6_month" placeholder="forecast_6_month" required="required" /> -->
+		<!-- <input type="text" name="forecast_9_month" placeholder="forecast_9_month" required="required" /> -->
+		<br>
+		<br>
+		<input type="text" name="sales_1_month" placeholder="sales_1_month" required="required" />
+		<input type="text" name="sales_3_month" placeholder="sales_3_month" required="required" />
+		<!-- <input type="text" name="sales_6_month" placeholder="sales_6_month" required="required" /> -->
+		<!-- <input type="text" name="sales_9_month" placeholder="sales_9_month" required="required" /> -->
+		<input type="text" name="min_bank" placeholder="min_bank" required="required" />
+		<input type="text" name="pieces_past_due" placeholder="pieces_past_due" required="required" />
+		<br>
+		<br>
+		<input type="text" name="perf_6_month_avg" placeholder="perf_6_month_avg" required="required" />
+		<!-- <input type="text" name="perf_12_month_avg" placeholder="perf_12_month_avg" required="required" /> -->
+		<input type="text" name="local_bo_qty" placeholder="local_bo_qty" required="required" />
+		<input type="text" name="potential_issue" placeholder="potential_issue" required="required" />
+		<input type="text" name="deck_risk" placeholder="deck_risk" required="required" />
+		<input type="text" name="oe_constraint" placeholder="oe_constraint" required="required" />
+		<input type="text" name="ppap_risk" placeholder="ppap_risk" required="required" />
+		<br>
+		<br>
+		<input type="text" name="stop_auto_buy" placeholder="stop_auto_buy" required="required" />
+		<input type="text" name="rev_stop" placeholder="rev_stop" required="required" />
+		
+		<br>
+		<br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
